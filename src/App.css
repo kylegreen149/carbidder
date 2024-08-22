@@ -133,8 +133,33 @@ button:hover {
   background-color: #0a0a23;;
 }
 
+.navBar ul{
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #080656;
+  overflow: hidden;
+}
+
+.navBar a {
+  text-decoration: none;
+  padding: 20px;
+  display: block;
+  text-align: center;
+  
+}
+
+.navBar a:hover {
+  background-color: #59598a;
+}
+
+.navBar li {
+  float: left;
+}
+
 #search {
-  width: 75%;
+  width: 25%;
   margin-bottom: 14px;
 }
 

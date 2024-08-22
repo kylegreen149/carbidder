@@ -13,7 +13,7 @@ function CarList({car}) {
     
     return (
         <>
-            <li>
+            <div>
                 <img src={car.image} alt={car.name} style={{height: "50%", width: "50%" }}/>
                 <h2>{car.name}</h2>
                 <p><b>Milage: </b> {car.milage} mi.</p>
@@ -24,7 +24,7 @@ function CarList({car}) {
                 <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
                 <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
                 <button onClick={handleClick}>Place $500 Bid</button>
-            </li>
+            </div>
             <br></br>
         </>
     )
