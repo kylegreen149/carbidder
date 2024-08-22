@@ -8,9 +8,9 @@
       "top_speed": 195,
       "accident_history": "None",
       "modifications": "None",
-      "bids": 6,
+      "bids": 7,
       "starting_bid_price": 85000,
-      "current_bid_price": 88000
+      "current_bid_price": 88500
     },
     {
       "id": "2",
@@ -143,6 +143,18 @@
       "bids": 3,
       "starting_bid_price": 3500,
       "current_bid_price": 5000
+    },
+    {
+      "id": "097d",
+      "image": "https://assets3.cbsnewsstatic.com/hub/i/r/2011/04/21/116ba4f5-a643-11e2-a3f0-029118418759/thumbnail/1200x630/91189dc9f0d729e388e50d9437f6a4bc/Corbin_Sparrow.jpg?v=fd6e213336f58b575c9e836e95546d26",
+      "name": "Flatcar",
+      "milage": "50000",
+      "top_speed": "25",
+      "accident_history": "Several",
+      "modifications": "None",
+      "bids": 0,
+      "starting_bid_price": "1000000",
+      "current_bid_price": "1000000"
     }
   ]
 }
