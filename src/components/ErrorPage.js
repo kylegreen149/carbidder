@@ -1,7 +1,7 @@
 function ErrorPage() {
     return (
         <div className="App">
-            <h1 style="color: red">404 ERROR: This page does not exist</h1>
+            <h1>404 ERROR: This page does not exist</h1>
         </div>
     )
 }
