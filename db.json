@@ -8,9 +8,9 @@
       "top_speed": 195,
       "accident_history": "None",
       "modifications": "None",
-      "bids": 7,
+      "bids": 18,
       "starting_bid_price": 85000,
-      "current_bid_price": 88500
+      "current_bid_price": 94000
     },
     {
       "id": "2",
@@ -20,9 +20,9 @@
       "top_speed": 180,
       "accident_history": "None",
       "modifications": "Lowering Springs, Downpipes, Interior LED Lights, Window Tints",
-      "bids": 12,
+      "bids": 15,
       "starting_bid_price": 72000,
-      "current_bid_price": 78000
+      "current_bid_price": 79500
     },
     {
       "id": "3",
@@ -92,9 +92,9 @@
       "top_speed": 204,
       "accident_history": "None",
       "modifications": "Tinted Windows, Downpipes",
-      "bids": 14,
+      "bids": 16,
       "starting_bid_price": 29000,
-      "current_bid_price": 36000
+      "current_bid_price": 37000
     },
     {
       "id": "9",

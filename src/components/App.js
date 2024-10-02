@@ -10,13 +10,13 @@ function App() {
   const [cars, setCars] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:4000/cars")
+    fetch("http://localhost:5555/cars")
     .then(response => response.json())
     .then(carData => setCars(carData))
   },[])
 
   function addCar(newCar){
-    fetch("http://localhost:4000/cars", {
+    fetch("http://localhost:5555/cars", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +28,7 @@ function App() {
   }
 
   function updateCar(updatedCarData, id) {
-    fetch(`http://localhost:4000/cars/${id}`, {
+    fetch(`http://localhost:5555/cars/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
