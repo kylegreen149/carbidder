@@ -7,7 +7,7 @@ function AddCarForm() {
     const [formData, setFormData] = useState({
         image: "",
         name: "",
-        milage: "",
+        mileage: "",
         top_speed: "",
         accident_history: "None",
         modifications: "",
@@ -28,7 +28,7 @@ function AddCarForm() {
         setFormData({
             image: "",
             name: "",
-            milage: "",
+            mileage: "",
             top_speed: "",
             accident_history: "None",
             modifications: "",
@@ -55,8 +55,8 @@ function AddCarForm() {
                 <label htmlFor="name-input">Car Name: </label>
                 <input onChange={updateFormData} id="name" name="name" placeholder="Ex: 2012 Jeep Grand Cherokee" value={formData.name} required />
 
-                <label htmlFor="milage-input">Milage (in mph): </label>
-                <input onChange={updateFormData} type="number" id="milage" name="milage" placeholder="Ex: 10503" value={formData.milage} required />
+                <label htmlFor="mileage-input">mileage (in mph): </label>
+                <input onChange={updateFormData} type="number" id="mileage" name="mileage" placeholder="Ex: 10503" value={formData.mileage} required />
 
                 <label htmlFor="topSpeed-input">Top Speed (in mph): </label>
                 <input onChange={updateFormData} type="number" id="top_speed" name="top_speed" placeholder="Ex: 210" value={formData.top_speed} required />

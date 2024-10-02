@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy_serializer import SerializerMixin
+from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 # from flask_bcrypt import Bcrypt
@@ -17,13 +17,13 @@ convention = {
 # init sqlalchemy object
 db = SQLAlchemy(metadata=MetaData(naming_convention=convention))
 
-class Car(db.Model):
+class Car(db.Model, SerializerMixin):
     __tablename__ = "cars"
 
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String)
     name = db.Column(db.String)
-    milage = db.Column(db.Integer)
+    mileage = db.Column(db.Integer)
     top_speed = db.Column(db.Integer)
     accident_history = db.Column(db.String)
     modifications = db.Column(db.String)
@@ -32,4 +32,4 @@ class Car(db.Model):
     current_bid_price = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'<Car {self.id}, {self.image}, {self.name}, {self.milage}, {self.top_speed}, {self.accident_history}, {self.modifications}, {self.bids}, {self.starting_bid_price}, {self.current_bid_price}>'
+        return f'<Car {self.id}, {self.image}, {self.name}, {self.mileage}, {self.top_speed}, {self.accident_history}, {self.modifications}, {self.bids}, {self.starting_bid_price}, {self.current_bid_price}>'
