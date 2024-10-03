@@ -16,7 +16,7 @@ function CarList({car}) {
             <div>
                 <img src={car.image} alt={car.name} style={{height: "50%", width: "50%" }}/>
                 <h2>{car.name}</h2>
-                <p><b>mileage: </b> {car.mileage} mi.</p>
+                <p><b>Mileage: </b> {car.mileage} mi.</p>
                 <p><b>Top Speed (mph): </b> {car.top_speed}</p>
                 <p><b>Accident History: </b>{car.accident_history}</p>
                 <p><b>Modifications: </b>{car.modifications}</p>

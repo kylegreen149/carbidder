@@ -29,9 +29,10 @@ def cars():
         data = request.get_json()
 
         try:
-            new_car = Car(image = data.get('image'), name = data.get('name'), mileage = data.get('mileage'), top_speed = data.get('top_speed'), 
-               accident_history = data.get('accident_history'), modifications = data.get('modifications'), 
-               bids = 0, starting_bid_price = data.get('starting_bid_price'), current_bid_price = data.get('starting_bid_price'))
+            new_car = Car(image = data.get('image'), name = data.get('name'), mileage = data.get('mileage'), 
+            top_speed = data.get('top_speed'), accident_history = data.get('accident_history'), 
+            modifications = data.get('modifications'), bids = 0, starting_bid_price = data.get('starting_bid_price'), 
+            current_bid_price = data.get('starting_bid_price'))
         except ValueError:
             return {"errors": ["Invalid data"]}, 400
 
