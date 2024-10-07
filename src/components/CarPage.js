@@ -8,7 +8,15 @@ function CarPage() {
     const [searchText, setSearchText] = useState("")
 
     const filteredCars = cars.filter(car => {
-        return car.name.toUpperCase().includes(searchText.toUpperCase())
+
+        return (
+            car.color.toUpperCase().includes(searchText.toUpperCase()) ||
+            car.year.toString().includes(searchText) ||
+            car.brand.toUpperCase().includes(searchText.toUpperCase()) ||
+            car.model.toUpperCase().includes(searchText.toUpperCase()) ||
+            car.body_style.toUpperCase().includes(searchText.toUpperCase()) ||
+            car.type.toUpperCase().includes(searchText.toUpperCase())
+        )
     })
 
     function updateSearchText(event){

@@ -9,7 +9,12 @@ with app.app_context():
 
     # Post new car from submitted form
     car1 = Car(image = "https://www.corvsport.com/wp-content/uploads/2022/09/2023-Chevrolet-Corvette-Z06-orange.jpg",
-               name = "2023 Chevrolet Corvette Z06",
+               color = "Red Orange",
+               year = "2023",
+               brand = "Chevrolet",
+               model = "Corvette Z06",
+               body_style = "Coupe",
+               type = "Gas",
                mileage = 17059,
                top_speed = 195,
                accident_history = "None",

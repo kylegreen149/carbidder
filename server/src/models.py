@@ -22,7 +22,12 @@ class Car(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     image = db.Column(db.String)
-    name = db.Column(db.String)
+    color = db.Column(db.String)
+    year = db.Column(db.Integer)
+    brand = db.Column(db.String)
+    model = db.Column(db.String)
+    body_style = db.Column(db.String)
+    type = db.Column(db.String)
     mileage = db.Column(db.Integer)
     top_speed = db.Column(db.Integer)
     accident_history = db.Column(db.String)
@@ -32,4 +37,4 @@ class Car(db.Model, SerializerMixin):
     current_bid_price = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'<Car {self.id}, {self.image}, {self.name}, {self.mileage}, {self.top_speed}, {self.accident_history}, {self.modifications}, {self.bids}, {self.starting_bid_price}, {self.current_bid_price}>'
+        return f'<Car {self.id}, {self.image}, {self.color}, {self.year}, {self.brand}, {self.model}, {self.body_style}, {self.type}, {self.mileage}, {self.top_speed}, {self.accident_history}, {self.modifications}, {self.bids}, {self.starting_bid_price}, {self.current_bid_price}>'
