@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router-dom"
+// import { useState } from "react";
 
 function CarList({car}) {
 
@@ -26,7 +27,8 @@ function CarList({car}) {
                 <p><b>Bids: </b>{car.bids}</p>
                 <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
                 <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
-                <button onClick={handleClick}>Place $500 Bid</button>
+                <button onClick={handleClick}>Place Bid</button>
+
             </div>
             <br></br>
         </>

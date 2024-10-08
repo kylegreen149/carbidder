@@ -8,14 +8,17 @@ function CarPage() {
     const [searchText, setSearchText] = useState("")
 
     const filteredCars = cars.filter(car => {
+        const searchWords = searchText.toUpperCase().split(" ") // Split search text into words to include spaces in search
 
         return (
-            car.color.toUpperCase().includes(searchText.toUpperCase()) ||
-            car.year.toString().includes(searchText) ||
-            car.brand.toUpperCase().includes(searchText.toUpperCase()) ||
-            car.model.toUpperCase().includes(searchText.toUpperCase()) ||
-            car.body_style.toUpperCase().includes(searchText.toUpperCase()) ||
-            car.type.toUpperCase().includes(searchText.toUpperCase())
+            searchWords.some(word =>
+                car.color.toUpperCase().includes(word) ||
+                car.year.toString().includes(word) ||
+                car.brand.toUpperCase().includes(word) ||
+                car.model.toUpperCase().includes(word) ||
+                car.body_style.toUpperCase().includes(word) ||
+                car.type.toUpperCase().includes(word)
+            )
         )
     })
 
