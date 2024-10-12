@@ -9,7 +9,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import CarPage from "./components/CarPage"
 import AddCarForm from './components/AddCarForm';
-import Mission from "./components/Mission"
+import MyBids from './components/MyBids';
 
 const router = createBrowserRouter([
   {
@@ -26,8 +26,8 @@ const router = createBrowserRouter([
         element: <AddCarForm />
       },
       {
-        path: "/mission",
-        element: <Mission />
+        path: "/my_bids",
+        element: <MyBids />
       },
     ]
   }

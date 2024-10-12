@@ -163,7 +163,7 @@ button:hover {
   margin-bottom: 14px;
 }
 
-#mission {
+/* #myBids {
   margin: 0 auto;
   max-width: 600px;
   min-width: 200px;
@@ -172,7 +172,7 @@ button:hover {
   line-height: 60px;
   font-size: 24px;
   margin-top: 80px;
-}
+} */
 
 @keyframes App-logo-spin {
   from {
