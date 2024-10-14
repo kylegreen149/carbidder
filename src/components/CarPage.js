@@ -33,7 +33,7 @@ function CarPage() {
     return (
         <>
             <Search updateSearchText={updateSearchText} searchText={searchText}/>
-            <div>
+            <div id="carList">
                 {carComponents}
             </div>
         </>

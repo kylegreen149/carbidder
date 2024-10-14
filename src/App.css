@@ -133,6 +133,14 @@ button:hover {
   background-color: #0a0a23;;
 }
 
+/* NavBar Sticky Scroll */
+.navBar {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+/* NavBar Full List */
 .navBar ul{
   list-style-type: none;
   margin: 0px;
@@ -142,6 +150,7 @@ button:hover {
   overflow: hidden;
 }
 
+/* NavBar Tabs */
 .navBar a {
   text-decoration: none;
   padding: 20px;
@@ -150,8 +159,15 @@ button:hover {
   
 }
 
+/* NavBar Tabs when hovered on*/
 .navBar a:hover {
   background-color: #59598a;
+}
+
+/* Current Tab on NavBar */
+.navBar a.active {
+  background-color: #242c6a;
+  color: white;
 }
 
 .navBar li {
@@ -173,6 +189,19 @@ button:hover {
   font-size: 24px;
   margin-top: 80px;
 } */
+
+/* Car Card */
+.card {
+  background: linear-gradient(145deg, rgba(2, 0, 36, 0.297) 0%, rgba(9, 9, 121, 0.16) 50%, rgba(2, 0, 36, 0.358) 85%);
+  margin: auto;
+  border-radius: 10px;
+}
+
+#carList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
+  grid-gap: 10px; /* Adds spacing between grid items */
+}
 
 @keyframes App-logo-spin {
   from {

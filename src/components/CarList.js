@@ -15,18 +15,17 @@ function CarList({car}) {
     }
     
     return (
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "50%", width: "50%" }} />
+        <Card style={{ width: '30rem', padding: "8px" }}>
+          <Card.Img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "275px", width: "28rem", borderRadius: "10px", marginTop: "10px"}} />
           <Card.Body>
-            <Card.Title>{car.year} {car.brand} {car.model}</Card.Title>
+            <Card.Title style={{fontWeight: "bold", fontSize: "20px"}}>{car.year} {car.brand} {car.model}</Card.Title>
             <Card.Text>
                 <p><b>Mileage: </b> {car.mileage} mi.</p>
                 <p><b>Bids: </b>{car.bids}</p>
                 <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
                 <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
-
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary" onClick={handleClick}>Place Bid</Button>
           </Card.Body>
         </Card>
       );
