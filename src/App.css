@@ -147,7 +147,7 @@ button:hover {
   padding: 0px;
   overflow: hidden;
   background-color: #080656;
-  overflow: hidden;
+  float: center;
 }
 
 /* NavBar Tabs */
@@ -170,14 +170,28 @@ button:hover {
   color: white;
 }
 
-.navBar li {
+.navBar .tabs {
   display: inline-block;
 }
 
-#search {
-  width: 25%;
-  margin-bottom: 14px;
+.navBar ul span {
+  float: right;
 }
+
+.navBar  #search {
+  width: 350px;
+  min-height: 2em;
+  margin-right: 14px;
+}
+
+.navBar input[type=text] {
+  padding: 8px;
+  margin-top: 6px;
+  font-size: 14px;
+  border: none;
+  
+}
+
 
 /* #myBids {
   margin: 0 auto;
@@ -191,6 +205,13 @@ button:hover {
 } */
 
 /* Car Card */
+#cardStyle {
+  padding-top: 14px;
+  margin-left: 18px;
+  margin-right: 18px;
+  margin-bottom: 18px;
+}
+
 .card {
   background: linear-gradient(145deg, rgba(2, 0, 36, 0.297) 0%, rgba(9, 9, 121, 0.16) 50%, rgba(2, 0, 36, 0.358) 85%);
   margin: auto;
@@ -200,7 +221,7 @@ button:hover {
 #carList {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
-  grid-gap: 10px; /* Adds spacing between grid items */
+  grid-gap: 6px; /* Adds spacing between grid items */
 }
 
 @keyframes App-logo-spin {

@@ -8,6 +8,11 @@ import NavBar from './NavBar';
 
 function App() {
   const [cars, setCars] = useState([])
+  const [searchText, setSearchText] = useState("")
+
+  function updateSearchText(event){
+    setSearchText(event.target.value)
+}
 
   useEffect(() => {
     fetch("http://localhost:5555/cars")
@@ -52,8 +57,8 @@ function App() {
   return (
     <div className='App'>
       <Header />
-      <NavBar />
-      <Outlet context={{cars: cars, addCar: addCar, updateCar: updateCar}}/>
+      <NavBar searchText = {searchText} updateSearchText = {updateSearchText}/>
+      <Outlet context={{cars: cars, addCar: addCar, updateCar: updateCar, searchText: searchText}}/>
     </div>
   )
 }
