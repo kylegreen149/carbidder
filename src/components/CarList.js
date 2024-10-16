@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext, useNavigate } from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 // import { useState } from "react";
@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 function CarList({car}) {
 
     const {updateCar} = useOutletContext()
+    const navigate = useNavigate()
     
 
     function handleClick() {
@@ -13,20 +14,30 @@ function CarList({car}) {
         const updatedCar = {bids: car.bids + 1, current_bid_price: car.current_bid_price + 500}
         updateCar(updatedCar, car.id)
     }
+
+    function viewCarDetails() {
+      navigate(`/cars/${car.id}`)
+    }
     
     return (
-        <div id="cardStyle">
-          <Card style={{ width: '28rem', padding: "8px" }}>
+        <div id="cardStyle" onClick={viewCarDetails}>
+          <Card style={{ width: '28rem', padding: "8px", cursor: "pointer"}}>
             <Card.Img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "280px", width: "27rem", borderRadius: "10px"}} />
             <Card.Body>
               <Card.Title style={{fontWeight: "bold", fontSize: "20px"}}>{car.year} {car.brand} {car.model}</Card.Title>
               <Card.Text>
-                  <p><b>Mileage: </b> {car.mileage} mi.</p>
-                  <p><b>Bids: </b>{car.bids}</p>
-                  <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
-                  <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
+                <b>Mileage: </b> {car.mileage} mi.
               </Card.Text>
-              <Button variant="primary" onClick={handleClick}>Place Bid</Button>
+              <Card.Text>
+                <b>Bids: </b>{car.bids}
+              </Card.Text>
+              <Card.Text>
+                <b>Starting Bid Price: </b>${car.starting_bid_price}
+              </Card.Text>
+              <Card.Text>
+                <b>Current Bid Price: </b>${car.current_bid_price}
+              </Card.Text>
+              <Button variant="primary" >View Car Details</Button>
             </Card.Body>
           </Card>
         </div>

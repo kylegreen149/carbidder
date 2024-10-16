@@ -45,7 +45,10 @@ def cars():
 def update_car(id):
     if request.method == 'GET':
         car = Car.query.filter(Car.id == id).first()
-        return car.to_dict()
+        if car != None:
+            return car.to_dict()
+        else:
+            return {"error": "Car not found"}, 404
     elif request.method == 'PATCH':
         data = request.get_json()
         updated_car = Car.query.filter_by(id = id).first()

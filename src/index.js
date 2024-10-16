@@ -10,6 +10,7 @@ import ErrorPage from './components/ErrorPage';
 import CarPage from "./components/CarPage"
 import AddCarForm from './components/AddCarForm';
 import MyBids from './components/MyBids';
+import Car from './components/Car';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "/my_bids",
         element: <MyBids />
       },
+      {
+        path: "/cars/:id",
+        element: <Car />
+      }
     ]
   }
 ])
