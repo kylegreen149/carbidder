@@ -13,7 +13,6 @@ function Car() {
     },[])
 
     function handleClick() {
-        
         const updatedCar = {bids: car.bids + 1, current_bid_price: car.current_bid_price + 500}
         updateCar(updatedCar, car.id)
         setCar({...car, ...updatedCar})
@@ -23,9 +22,8 @@ function Car() {
         return null
     }
 
-
     return (
-        <div>
+        <div style={{padding: "16px"}}>
             <img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "50%", width: "50%" }}/>
             <h2>{car.year} {car.brand} {car.model}</h2>
             <p><b>Color: </b>{car.color}</p>
@@ -39,7 +37,6 @@ function Car() {
             <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
             <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
             <button onClick={handleClick}>Place Bid</button>
-
         </div>
     )
 }

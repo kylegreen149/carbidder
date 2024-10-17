@@ -221,7 +221,7 @@ button:hover {
 #carList {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
-  grid-gap: 6px; /* Adds spacing between grid items */
+  grid-gap: 1px; /* Adds spacing between grid items */
 }
 
 @keyframes App-logo-spin {
