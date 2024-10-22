@@ -32,7 +32,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/cars/:id",
-        element: <Car />
+        element: <Car />,
+        errorElement: <ErrorPage />
       }
     ]
   }

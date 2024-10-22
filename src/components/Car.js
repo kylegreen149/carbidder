@@ -1,4 +1,4 @@
-import { useOutletContext, useParams } from "react-router-dom"
+import { useOutletContext, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 function Car() {
@@ -6,13 +6,23 @@ function Car() {
     const [displayForm, setDisplayForm] = useState(false)
     const [customBidValue, setCustomBidValue] = useState("")
     const {id} = useParams()
+    const navigate = useNavigate()
     const {updateCar} = useOutletContext()
     
     useEffect(() => {
         fetch(`http://localhost:5555/cars/${id}`)
-        .then(response => response.json())
-        .then(carData => setCar(carData))
-    },[])
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Car not found');
+                }
+                return response.json();
+            })
+            .then(carData => setCar(carData))
+            .catch(error => {
+                console.error(error);
+                navigate('/error');
+            });
+    }, [id, navigate]);
 
     function handleBid(bidAmount) {
         const updatedCar = {bids: car.bids + 1, current_bid_price: car.current_bid_price + bidAmount}
@@ -45,29 +55,31 @@ function Car() {
     }
 
     return (
-        <div style={{padding: "16px"}}>
-            <img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "50%", width: "50%" }}/>
-            <h2>{car.year} {car.brand} {car.model}</h2>
-            <p><b>Color: </b>{car.color}</p>
-            <p><b>Body Style: </b>{car.body_style}</p>
-            <p><b>Type: </b>{car.type}</p>
-            <p><b>Mileage: </b> {car.mileage} mi.</p>
-            <p><b>Top Speed (mph): </b> {car.top_speed}</p>
-            <p><b>Accident History: </b>{car.accident_history}</p>
-            <p><b>Modifications: </b>{car.modifications}</p>
-            <p><b>Bids: </b>{car.bids}</p>
-            <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
-            <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
-            <div className="placeBid">
-                <button onClick={() => handleBid(500)}>Place $500 Bid</button>
-                {displayForm ? 
-                <form onSubmit={handleSubmit}>
-                    <input type="number" placeholder="Enter Bid Here" onChange={handleChange} value={customBidValue} required/>
-                    <button type="submit">Submit Bid</button>
-                    <button onClick={toggleDisplayForm}>Discard Bid</button>
-                </form>
-                :
-                <button onClick={toggleDisplayForm}>Place Custom Bid</button>}
+        <div style={{padding: "16px"}} className="car-page">
+            <img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "50%", width: "50%" }} className="car-image"/>
+            <div className="car-details" style={{height: "50%", width: "50%"}}>
+                <h2>{car.year} {car.brand} {car.model}</h2>
+                <p><b>Color: </b>{car.color}</p>
+                <p><b>Body Style: </b>{car.body_style}</p>
+                <p><b>Type: </b>{car.type}</p>
+                <p><b>Mileage: </b> {car.mileage} mi.</p>
+                <p><b>Top Speed (mph): </b> {car.top_speed}</p>
+                <p><b>Accident History: </b>{car.accident_history}</p>
+                <p><b>Modifications: </b>{car.modifications}</p>
+                <p><b>Bids: </b>{car.bids}</p>
+                <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
+                <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
+                <div className="placeBid">
+                    <button onClick={() => handleBid(500)}>Place +$500 Bid</button>
+                    {displayForm ? 
+                    <form onSubmit={handleSubmit}>
+                        <input className="customBid" type="number" placeholder="Enter a Bid Greater than $500 Here" style={{width: "59%"}} onChange={handleChange} value={customBidValue} required/>
+                        <button type="submit">Submit Bid</button>
+                        <button onClick={toggleDisplayForm}>Discard Bid</button>
+                    </form>
+                    :
+                    <button onClick={toggleDisplayForm}>Place Custom Bid</button>}
+                </div>
             </div>
         </div>
     )

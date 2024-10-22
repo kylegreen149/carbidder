@@ -236,6 +236,19 @@ button:hover {
   grid-gap: 1px; /* Adds spacing between grid items */
 }
 
+.car-page {
+  display: flex;
+  align-items: flex-start; /* Align items to the start of the container */
+  gap: 20px; /* Space between the image and details */
+}
+
+.car-details {
+  display: flex;
+  flex-direction: column; /* Stack the details vertically */
+  justify-content: flex-start; /* Align items to the start of the container */
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
