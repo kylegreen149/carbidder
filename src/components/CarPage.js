@@ -1,12 +1,9 @@
 import { useOutletContext } from "react-router-dom"
-import { useState } from "react"
-import Filter from "./Filter"
 import CarList from "./CarList"
 
 function CarPage() {
-    const {cars, searchText} = useOutletContext()
-    const [checkedYears, setCheckedYears] = useState([])
-
+    const { cars, searchText } = useOutletContext() 
+    
     const filteredCars = cars.filter(car => {
         const searchWords = searchText.toUpperCase().split(" ") // Split search text into words to include spaces in search
         return (
@@ -22,48 +19,13 @@ function CarPage() {
         )
     })
 
-    console.log(checkedYears)
-
-    function handleChange(event) {
-        if (event.target.checked === true) {
-            setCheckedYears([...checkedYears, Number(event.target.value)])
-        }
-        else {
-            const filteredYears = checkedYears.filter((year) => {
-                return year !== Number(event.target.value)
-            })
-            setCheckedYears(filteredYears)
-        }
-    }
-
-    const checkedFilteredCars = cars.filter(car => {
-        if (checkedYears.length === 0) {
-            return true
-        } 
-        else {
-            const yearIsFound = checkedYears.find(year => {
-                return year === car.year
-            })
-            if (yearIsFound === undefined) {
-                return false
-            } 
-            else {
-                return true
-            }
-        }
-    }) 
-
-    const carComponents = checkedFilteredCars.map(car => {
+    const carComponents = filteredCars.map(car => {
         return <CarList key={car.id} car={car} />
     })
     return (
-        <>
-            <Filter handleChange={handleChange}/>
-            {/* <Search updateSearchText={updateSearchText} searchText={searchText}/> */}
-            <div id="carList">
-                {carComponents}
-            </div>
-        </>
+        <div id="carList">
+            {carComponents}
+        </div>
     )
 }
 

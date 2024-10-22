@@ -204,12 +204,24 @@ button:hover {
   margin-top: 80px;
 } */
 
+.car div .placeBid {
+  display: inline-flex;
+  gap: 20px;
+}
+
+.car div .placeBid button {
+  padding: 10px 20px;
+}
+
+
+
+
 /* Car Card */
 #cardStyle {
-  padding-top: 14px;
-  margin-left: 18px;
-  margin-right: 18px;
-  margin-bottom: 18px;
+  padding-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-bottom: 20px;
 }
 
 .card {

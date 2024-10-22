@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 
 function Car() {
     const [car, setCar] = useState(null)
+    const [displayForm, setDisplayForm] = useState(false)
+    const [customBidValue, setCustomBidValue] = useState("")
     const {id} = useParams()
     const {updateCar} = useOutletContext()
     
@@ -12,10 +14,30 @@ function Car() {
         .then(carData => setCar(carData))
     },[])
 
-    function handleClick() {
-        const updatedCar = {bids: car.bids + 1, current_bid_price: car.current_bid_price + 500}
+    function handleBid(bidAmount) {
+        const updatedCar = {bids: car.bids + 1, current_bid_price: car.current_bid_price + bidAmount}
         updateCar(updatedCar, car.id)
         setCar({...car, ...updatedCar})
+    }
+
+    function toggleDisplayForm() {
+        setDisplayForm(!displayForm)
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault()
+        if (customBidValue > 500) {
+            handleBid(Number(customBidValue))
+            toggleDisplayForm()
+        }
+        else {
+            window.alert("Please place a bid higher than $500!")
+        }
+
+    }
+
+    function handleChange(event) {
+        setCustomBidValue(event.target.value)
     }
 
     if (car === null) {
@@ -36,7 +58,17 @@ function Car() {
             <p><b>Bids: </b>{car.bids}</p>
             <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
             <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
-            <button onClick={handleClick}>Place Bid</button>
+            <div className="placeBid">
+                <button onClick={() => handleBid(500)}>Place $500 Bid</button>
+                {displayForm ? 
+                <form onSubmit={handleSubmit}>
+                    <input type="number" placeholder="Enter Bid Here" onChange={handleChange} value={customBidValue} required/>
+                    <button type="submit">Submit Bid</button>
+                    <button onClick={toggleDisplayForm}>Discard Bid</button>
+                </form>
+                :
+                <button onClick={toggleDisplayForm}>Place Custom Bid</button>}
+            </div>
         </div>
     )
 }

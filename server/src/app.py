@@ -53,7 +53,7 @@ def update_car(id):
         data = request.get_json()
         updated_car = Car.query.filter_by(id = id).first()
         updated_car.bids += 1
-        updated_car.current_bid_price += 500 # data.get("current_bid_price")
+        updated_car.current_bid_price += data.get("current_bid_price") # data.get("current_bid_price") it multiples by start bid + custom bid?
         db.session.add(updated_car)
         db.session.commit()
         return updated_car.to_dict()
