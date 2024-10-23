@@ -15,9 +15,11 @@ with app.app_context():
                model = "Corvette Z06",
                body_style = "Coupe",
                type = "Gas",
+               transmission = "Dual-clutch Transmission (DCT)",
                mileage = 17059,
                top_speed = 195,
                accident_history = "No",
+               current_condition = "Excellent",
                modifications = "None",
                car_report = """This car stands out for its exhilarating performance and striking design. Powered by a naturally aspirated 
                5.5-liter V8 engine, it produces a thrilling 670 horsepower, delivering breathtaking acceleration and a spine-tingling 

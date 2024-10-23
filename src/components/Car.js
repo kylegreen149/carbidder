@@ -61,21 +61,23 @@ function Car() {
                 <h2 style={{marginTop: "0px", marginBottom: "0px"}}>{car.year} {car.brand} {car.model}</h2>
                 <div className="car-description" style={{margin: "5px"}}>
                     <div style={{float: "left"}}>
-                    <p><b>Color: </b>{car.color}</p>
-                    <p><b>Body Style: </b>{car.body_style}</p>
-                    <p><b>Type: </b>{car.type}</p>
-                    <p><b>Mileage: </b> {car.mileage} mi.</p>
-                    <p><b>Top Speed (mph): </b> {car.top_speed}</p>
-                    <p><b>Accident History: </b>{car.accident_history}</p>
-                    <p><b>Modifications: </b>{car.modifications}</p>
-                    <p><b>Bids: </b>{car.bids}</p>
-                    <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
-                    <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
+                        <p><b>Color: </b>{car.color}</p>
+                        <p><b>Body Style: </b>{car.body_style}</p>
+                        <p><b>Type: </b>{car.type}</p>
+                        <p><b>Transmission: </b>{car.transmission}</p>
+                        <p><b>Mileage: </b> {car.mileage} mi.</p>
+                        <p><b>Top Speed (mph): </b> {car.top_speed}</p>
+                        <p><b>Accident History: </b>{car.accident_history}</p>
+                        <p><b>Current Condition: </b>{car.current_condition}</p>
+                        <p><b>Modifications: </b>{car.modifications}</p>
+                        <p><b>Bids: </b>{car.bids}</p>
+                        <p><b>Starting Bid Price: </b>${car.starting_bid_price}</p>
+                        <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
                     </div>
-                    <div className="car_report" style={{height: "50%", float: "right", paddingRight: "100px"}}>
-                        <p><b>Owner's Car Report</b></p>
-                        <p>{car.car_report}</p>
-                    </div>
+                </div>
+                <div className="car_report">
+                    <p><b>Owner's Car Report</b></p>
+                    <p>{car.car_report}</p>
                 </div>
                 <div className="placeBid">
                     <button onClick={() => handleBid(500)}>Place +$500 Bid</button>

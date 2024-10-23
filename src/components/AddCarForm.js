@@ -12,9 +12,11 @@ function AddCarForm() {
         model: "",
         body_style: "",
         type: "Gas",
+        transmission: "Semi-automatic Transmission",
         mileage: "",
         top_speed: "",
         accident_history: "No",
+        current_condition: "Excellent",
         modifications: "",
         car_report: "",
         bids: 0,
@@ -39,9 +41,11 @@ function AddCarForm() {
             model: "",
             body_style: "",
             type: "Gas",
+            transmission: "Semi-automatic Transmission",
             mileage: "",
             top_speed: "",
             accident_history: "No",
+            current_condition: "Excellent",
             modifications: "",
             car_report: "",
             bids: 0,
@@ -94,6 +98,13 @@ function AddCarForm() {
                     <option value="Electric">Electric</option>
                 </select>
 
+                <label htmlFor="transmission-input">Transmission: </label>
+                <select onChange={updateFormData} name="transmission" id="transmission" value={formData.transmission}>
+                    <option value="Semi-automatic Transmission">Semi-automatic Transmission</option>
+                    <option value="Dual-clutch Transmission (DCT)">Dual-clutch Transmission (DCT)</option>
+                    <option value="Auto-manual Transmission">Auto-manual transmission</option>
+                </select>
+
                 <label htmlFor="mileage-input">Mileage: (in mph): </label>
                 <input onChange={updateFormData} type="number" id="mileage" name="mileage" placeholder="Ex: 10503" value={formData.mileage} required />
 
@@ -106,11 +117,19 @@ function AddCarForm() {
                     <option value="Yes">Yes</option>
                 </select>
 
+                <label htmlFor="current-condition-input">Car's Current Condition: </label>
+                <select onChange={updateFormData} name="current_condition" id="current_condition" value={formData.current_condition}>
+                    <option value="Excellent">Excellent - This car doesn't have a scratch and can be used for years to come!</option>
+                    <option value="Good">Good - Minimal flaws, functions with little to no problems.</option>
+                    <option value="Fair">Fair - A few flaws, but will still take you to where you need to go.</option>
+                    <option value="Poor">Poor - This car needs a lot of repairs.</option>
+                </select>
+
                 <label htmlFor="modifications-input">Modifications: </label>
                 <textarea onChange={updateFormData} id="modifications" name="modifications" placeholder="Ex: Window Tints, Spoilers, Downpipes (If none, type None)" value={formData.modifications} required></textarea>
 
                 <label htmlFor="car-report-input">Car Report: </label>
-                <textarea onChange={updateFormData} id="car-report" name="car-report" placeholder="Summarize your car; talk about special features, describe its accident history (if any), and describe recent upgrades or flaws." value={formData.car_report} required></textarea>
+                <textarea onChange={updateFormData} id="car_report" name="car_report" placeholder="Summarize your car; talk about special features, describe its accident history (if any), and describe recent upgrades or flaws." value={formData.car_report} required></textarea>
 
                 <label htmlFor="starting-bid-input">Starting Bid Price: $</label>
                 <input onChange={updateFormData} type="number" id="starting_bid_price" name="starting_bid_price" placeholder="Ex: 50000" value={formData.starting_bid_price} required />

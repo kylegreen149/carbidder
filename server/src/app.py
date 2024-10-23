@@ -30,8 +30,9 @@ def cars():
 
         try:
             new_car = Car(image = data.get('image'), color = data.get('color'), year = data.get("year"), 
-            brand = data.get("brand"), model = data.get("model"), body_style = data.get("body_style"), type = data.get("type"), 
-            mileage = data.get('mileage'), top_speed = data.get('top_speed'), accident_history = data.get('accident_history'), 
+            brand = data.get("brand"), model = data.get("model"), body_style = data.get("body_style"), type = data.get("type"),
+            transmission = data.get('transmission'), mileage = data.get('mileage'), top_speed = data.get('top_speed'), 
+            accident_history = data.get('accident_history'), current_condition = data.get('current_condition'), 
             modifications = data.get('modifications'), car_report = data.get("car_report"), bids = 0, 
             starting_bid_price = data.get('starting_bid_price'), current_bid_price = data.get('starting_bid_price'))
         except ValueError:
