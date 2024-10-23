@@ -32,8 +32,8 @@ def cars():
             new_car = Car(image = data.get('image'), color = data.get('color'), year = data.get("year"), 
             brand = data.get("brand"), model = data.get("model"), body_style = data.get("body_style"), type = data.get("type"), 
             mileage = data.get('mileage'), top_speed = data.get('top_speed'), accident_history = data.get('accident_history'), 
-            modifications = data.get('modifications'), bids = 0, starting_bid_price = data.get('starting_bid_price'), 
-            current_bid_price = data.get('starting_bid_price'))
+            modifications = data.get('modifications'), car_report = data.get("car_report"), bids = 0, 
+            starting_bid_price = data.get('starting_bid_price'), current_bid_price = data.get('starting_bid_price'))
         except ValueError:
             return {"errors": ["Invalid data"]}, 400
 
@@ -53,7 +53,7 @@ def update_car(id):
         data = request.get_json()
         updated_car = Car.query.filter_by(id = id).first()
         updated_car.bids += 1
-        updated_car.current_bid_price += data.get("current_bid_price") # data.get("current_bid_price") it multiples by start bid + custom bid?
+        updated_car.current_bid_price += data.get("current_bid_price")
         db.session.add(updated_car)
         db.session.commit()
         return updated_car.to_dict()
