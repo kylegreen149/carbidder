@@ -14,8 +14,9 @@ function AddCarForm() {
         type: "Gas",
         mileage: "",
         top_speed: "",
-        accident_history: "None",
+        accident_history: "No",
         modifications: "",
+        car_report: "",
         bids: 0,
         starting_bid_price: "",
         current_bid_price: ""
@@ -40,8 +41,9 @@ function AddCarForm() {
             type: "Gas",
             mileage: "",
             top_speed: "",
-            accident_history: "None",
+            accident_history: "No",
             modifications: "",
+            car_report: "",
             bids: 0,
             starting_bid_price: "",
             current_bid_price: "" 
@@ -100,13 +102,15 @@ function AddCarForm() {
 
                 <label htmlFor="accident-history-input">Accident History: </label>
                 <select onChange={updateFormData} name="accident_history" id="accident_history" value={formData.accident_history}>
-                    <option value="None">None</option>
-                    <option value="Minor">Minor</option>
-                    <option value="Several">Several</option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
                 </select>
 
                 <label htmlFor="modifications-input">Modifications: </label>
                 <textarea onChange={updateFormData} id="modifications" name="modifications" placeholder="Ex: Window Tints, Spoilers, Downpipes (If none, type None)" value={formData.modifications} required></textarea>
+
+                <label htmlFor="car-report-input">Car Report: </label>
+                <textarea onChange={updateFormData} id="car-report" name="car-report" placeholder="Summarize your car; talk about special features, describe its accident history (if any), and describe recent upgrades or flaws." value={formData.car_report} required></textarea>
 
                 <label htmlFor="starting-bid-input">Starting Bid Price: $</label>
                 <input onChange={updateFormData} type="number" id="starting_bid_price" name="starting_bid_price" placeholder="Ex: 50000" value={formData.starting_bid_price} required />

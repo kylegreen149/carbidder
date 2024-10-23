@@ -178,7 +178,7 @@ button:hover {
   float: right;
 }
 
-.navBar  #search {
+.navBar #search {
   width: 350px;
   min-height: 2em;
   margin-right: 14px;
@@ -246,6 +246,10 @@ button:hover {
   display: flex;
   flex-direction: column; /* Stack the details vertically */
   justify-content: flex-start; /* Align items to the start of the container */
+}
+
+.car-description p {
+  text-align: left;
 }
 
 
