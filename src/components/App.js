@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 
 function App() {
   const [cars, setCars] = useState([])
+  const [bids, setBids] = useState([])
   const [searchText, setSearchText] = useState("")
 
   function updateSearchText(event){
@@ -54,11 +55,18 @@ function App() {
     })
   }
 
+  useEffect(() => {
+    fetch("http://localhost:5555/my_bids")
+    .then(response => response.json())
+    .then(bidsData => setBids(bidsData))
+  },[])
+  console.log(bids)
+
   return (
     <div className='App'>
       <Header />
       <NavBar searchText = {searchText} updateSearchText = {updateSearchText}/>
-      <Outlet context={{cars: cars, addCar: addCar, updateCar: updateCar, searchText: searchText}}/>
+      <Outlet context={{cars: cars, addCar: addCar, updateCar: updateCar, searchText: searchText, bids: bids}}/>
     </div>
   )
 }

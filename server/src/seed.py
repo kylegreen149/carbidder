@@ -8,7 +8,7 @@ with app.app_context():
     # data = request.get_json()
 
     # Post new car from submitted form
-    car1 = Car(image = "https://www.corvsport.com/wp-content/uploads/2022/09/2023-Chevrolet-Corvette-Z06-orange.jpg",
+    car1 = Car(display_image = "https://www.corvsport.com/wp-content/uploads/2022/09/2023-Chevrolet-Corvette-Z06-orange.jpg",
                color = "Orange",
                year = "2023",
                brand = "Chevrolet",

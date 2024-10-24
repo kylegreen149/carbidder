@@ -237,9 +237,10 @@ button:hover {
 }
 
 .car-page {
-  display: flex;
-  align-items: flex-start; /* Align items to the start of the container */
-  gap: 20px; /* Space between the image and details */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+   /* Align items to the start of the container */
+  gap: 2px; /* Space between the image and details */
 }
 
 .car-details {
@@ -250,6 +251,20 @@ button:hover {
 
 .car-description p {
   text-align: left;
+  margin-left: 10px;
+}
+
+#userCarReport {
+  text-align: left;
+}
+
+.car_report h2 p {
+  text-align: left;
+  float: left;
+}
+
+.placeBid {
+  padding-top: 50px;
 }
 
 

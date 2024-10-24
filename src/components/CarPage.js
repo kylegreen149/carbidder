@@ -14,7 +14,8 @@ function CarPage() {
                 car.brand.toUpperCase().includes(word) || // Searches car brand OR
                 car.model.toUpperCase().includes(word) || // Searches car model OR
                 car.body_style.toUpperCase().includes(word) || // Searches car body style OR
-                car.type.toUpperCase().includes(word) // Searches car type
+                car.type.toUpperCase().includes(word) || // Searches car type OR
+                car.transmission.toUpperCase().includes(word)
             )
         )
     })

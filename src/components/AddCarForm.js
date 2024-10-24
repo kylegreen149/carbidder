@@ -5,7 +5,11 @@ function AddCarForm() {
     const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
-        image: "",
+        display_image: "",
+        image2: "",
+        image3: "",
+        image4: "",
+        image5: "",
         color: "",
         year: "",
         brand: "",
@@ -34,7 +38,11 @@ function AddCarForm() {
         addCar(newCar)
 
         setFormData({
-            image: "",
+            display_image: "",
+            image2: "",
+            image3: "",
+            image4: "",
+            image5: "",
             color: "",
             year: "",
             brand: "",
@@ -64,8 +72,8 @@ function AddCarForm() {
             <h3>Add Your Car to Auction Off</h3>
             <p>Please fill out this form with all of the required information</p>
             <fieldset>
-                <label htmlFor="image-input">Car Image: </label>
-                <input onChange={updateFormData} id="image" name="image" placeholder="Ex: https://mycar.png" value={formData.image} required />
+                <label htmlFor="display-image-input">Car Image: </label>
+                <input onChange={updateFormData} id="display_image" name="display_image" placeholder="Ex: https://mycar.png" value={formData.display_image} required />
 
                 <label htmlFor="color-input">Color: </label>
                 <input onChange={updateFormData} id="color" name="color" placeholder="Ex: Red" value={formData.color} required />

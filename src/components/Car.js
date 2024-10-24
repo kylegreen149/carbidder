@@ -1,5 +1,7 @@
 import { useOutletContext, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
+// import Carousel from 'react-bootstrap/Carousel';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Car() {
     const [car, setCar] = useState(null)
@@ -24,10 +26,23 @@ function Car() {
             });
     }, [id, navigate]);
 
+    function postBids() {
+        fetch("http://localhost:5555/my_bids", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({car_id: car.id})
+        })
+        .then(response => response.json())
+        .then(newBid => console.log(newBid))
+    }
+
     function handleBid(bidAmount) {
         const updatedCar = {bids: car.bids + 1, current_bid_price: car.current_bid_price + bidAmount}
         updateCar(updatedCar, car.id)
         setCar({...car, ...updatedCar})
+        postBids()
     }
 
     function toggleDisplayForm() {
@@ -55,11 +70,11 @@ function Car() {
     }
 
     return (
-        <div style={{padding: "16px"}} className="car-page">
-            <img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "50%", width: "50%" }} className="car-image"/>
+        <div style={{padding: "16px"}} className="car-page"> 
+            <img src={car.display_image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "100%", width: "100%" }} className="car-image"/>
             <div className="car-details" style={{height: "50%", width: "50%"}}>
-                <h2 style={{marginTop: "0px", marginBottom: "0px"}}>{car.year} {car.brand} {car.model}</h2>
-                <div className="car-description" style={{margin: "5px"}}>
+                <h2 id="carName" style={{marginTop: "0px", marginBottom: "0px"}}>{car.year} {car.brand} {car.model}</h2>
+                <div className="car-description" style={{margin: "8px"}}>
                     <div style={{float: "left"}}>
                         <p><b>Color: </b>{car.color}</p>
                         <p><b>Body Style: </b>{car.body_style}</p>
@@ -75,21 +90,21 @@ function Car() {
                         <p><b>Current Bid Price: </b>${car.current_bid_price}</p>
                     </div>
                 </div>
-                <div className="car_report">
-                    <p><b>Owner's Car Report</b></p>
-                    <p>{car.car_report}</p>
-                </div>
-                <div className="placeBid">
-                    <button onClick={() => handleBid(500)}>Place +$500 Bid</button>
-                    {displayForm ? 
-                    <form onSubmit={handleSubmit}>
-                        <input className="customBid" type="number" placeholder="Enter a Bid Greater than $500 Here" style={{width: "59%"}} onChange={handleChange} value={customBidValue} required/>
-                        <button type="submit">Submit Bid</button>
-                        <button onClick={toggleDisplayForm}>Discard Bid</button>
-                    </form>
-                    :
-                    <button onClick={toggleDisplayForm}>Place Custom Bid</button>}
-                </div>
+            </div>
+            <div className="car_report" style={{ width: "100%" }}>
+                <p><b>Owner's Car Report</b></p>
+                <p id="userCarReport">{car.car_report}</p>
+            </div>
+            <div className="placeBid">
+                <button onClick={() => handleBid(500)}>Place +$500 Bid</button>
+                {displayForm ? 
+                <form onSubmit={handleSubmit}>
+                    <input className="customBid" type="number" placeholder="Enter a Bid Greater than $500 Here" style={{width: "59%"}} onChange={handleChange} value={customBidValue} required/>
+                    <button type="submit">Submit Bid</button>
+                    <button onClick={toggleDisplayForm}>Discard Bid</button>
+                </form>
+                :
+                <button onClick={toggleDisplayForm}>Place Custom Bid</button>}
             </div>
         </div>
     )

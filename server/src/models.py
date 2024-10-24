@@ -21,7 +21,7 @@ class Car(db.Model, SerializerMixin):
     __tablename__ = "cars"
 
     id = db.Column(db.Integer, primary_key=True)
-    image = db.Column(db.String)
+    display_image = db.Column(db.String)
     color = db.Column(db.String)
     year = db.Column(db.Integer)
     brand = db.Column(db.String)
@@ -40,4 +40,13 @@ class Car(db.Model, SerializerMixin):
     current_bid_price = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'<Car {self.id}, {self.image}, {self.color}, {self.year}, {self.brand}, {self.model}, {self.body_style}, {self.type}, {self.transmission}, {self.mileage}, {self.top_speed}, {self.accident_history}, {self.current_condition}, {self.modifications}, {self.car_report}, {self.bids}, {self.starting_bid_price}, {self.current_bid_price}>'
+        return f'''<Car {self.id}, {self.display_image}, {self.color}, 
+        {self.year}, {self.brand}, {self.model}, {self.body_style}, {self.type}, {self.transmission}, {self.mileage}, 
+        {self.top_speed}, {self.accident_history}, {self.current_condition}, {self.modifications}, {self.car_report}, 
+        {self.bids}, {self.starting_bid_price}, {self.current_bid_price}>'''
+    
+class Bids(db.Model, SerializerMixin):
+    __tablename__ = "bids"
+    
+    id = db.Column(db.Integer, primary_key=True)
+    car_id = db.Column(db.Integer, db.ForeignKey("cars.id"))

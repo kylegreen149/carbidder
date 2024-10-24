@@ -1,4 +1,4 @@
-import { useOutletContext, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import Card from 'react-bootstrap/Card';
 
 function CarList({car}) {
@@ -11,7 +11,7 @@ function CarList({car}) {
     return (
       <div id="cardStyle" onClick={viewCarDetails}>
         <Card style={{ width: '28rem', padding: "8px", cursor: "pointer"}}>
-          <Card.Img src={car.image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "280px", width: "27rem", borderRadius: "10px"}} />
+          <Card.Img src={car.display_image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "280px", width: "27rem", borderRadius: "10px"}} />
           <Card.Body>
             <Card.Title style={{fontWeight: "bold", fontSize: "20px"}}>{car.year} {car.brand} {car.model}</Card.Title>
             <Card.Text>
