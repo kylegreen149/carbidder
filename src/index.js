@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import ErrorPage from './components/ErrorPage';
+import Dedication from './components/Dedication'
 import CarPage from "./components/CarPage"
 import AddCarForm from './components/AddCarForm';
 import MyBids from './components/MyBids';
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: "/cars/:id",
         element: <Car />,
         errorElement: <ErrorPage />
+      },
+      {
+        path: "/a_dedication",
+        element: <Dedication />
       }
     ]
   }

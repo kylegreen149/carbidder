@@ -133,6 +133,16 @@ button:hover {
   background-color: #0a0a23;;
 }
 
+.dedication {
+  list-style-type: none;
+  font-size: 22px;
+  padding-top: 60px;
+}
+
+.dedication .names {
+  font-weight: lighter;
+}
+
 /* NavBar Sticky Scroll */
 .navBar {
   position: sticky;
@@ -192,18 +202,6 @@ button:hover {
   
 }
 
-
-/* #myBids {
-  margin: 0 auto;
-  max-width: 600px;
-  min-width: 200px;
-  width: 60vw;
-  padding-bottom: 2em;
-  line-height: 60px;
-  font-size: 24px;
-  margin-top: 80px;
-} */
-
 .car div .placeBid {
   display: inline-flex;
   gap: 20px;
@@ -212,9 +210,6 @@ button:hover {
 .car div .placeBid button {
   padding: 10px 20px;
 }
-
-
-
 
 /* Car Card */
 #cardStyle {
