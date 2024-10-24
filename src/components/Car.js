@@ -72,7 +72,7 @@ function Car() {
     return (
         <div style={{padding: "16px"}} className="car-page"> 
             <img src={car.display_image} alt={`${car.year} ${car.brand} ${car.model}`} style={{height: "100%", width: "100%" }} className="car-image"/>
-            <div className="car-details" style={{height: "50%", width: "50%"}}>
+            <div className="car-details" style={{height: "50%", width: "100%"}}>
                 <h2 id="carName" style={{marginTop: "0px", marginBottom: "0px"}}>{car.year} {car.brand} {car.model}</h2>
                 <div className="car-description" style={{margin: "8px"}}>
                     <div style={{float: "left"}}>
