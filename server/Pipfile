@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 flask = "*"
+ipdb = "*"
 flask-sqlalchemy = "*"
 flask-migrate = "*"
 importlib-metadata = "*"

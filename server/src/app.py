@@ -1,5 +1,6 @@
 from flask import Flask, make_response, jsonify, request
 from flask_migrate import Migrate
+import ipdb
 
 from models import db, Car, Bids
 
@@ -53,9 +54,10 @@ def update_car(id):
 
     elif request.method == 'PATCH':
         data = request.get_json()
+        # ipdb.set_trace()
         updated_car = Car.query.filter_by(id = id).first()
         updated_car.bids += 1
-        updated_car.current_bid_price += data.get("current_bid_price")
+        updated_car.current_bid_price = data.get("current_bid_price")
         db.session.add(updated_car)
         db.session.commit()
         return updated_car.to_dict()

@@ -24,9 +24,11 @@ function Dedication() {
                     <span>Black John M., </span>
                     <span>White John S., </span>
                     <span>Kenny K****., </span>
-                    <span>Adam C., </span>
-                    <span>Karen K., </span>
+                    <span>Adam H., </span>
+                    <span>Karen H., </span>
                     <span>Gabriella L.</span>
+                    <span>Rachel V., </span>
+                    <span>Gabriel M.</span>
                 </p>
             </div>
         </div>
