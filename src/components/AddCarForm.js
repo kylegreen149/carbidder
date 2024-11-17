@@ -6,15 +6,11 @@ function AddCarForm() {
 
     const [formData, setFormData] = useState({
         display_image: "",
-        image2: "",
-        image3: "",
-        image4: "",
-        image5: "",
         color: "",
         year: "",
         brand: "",
         model: "",
-        body_style: "",
+        body_style: "Sedan",
         type: "Gas",
         transmission: "Semi-automatic Transmission",
         mileage: "",
@@ -39,15 +35,11 @@ function AddCarForm() {
 
         setFormData({
             display_image: "",
-            image2: "",
-            image3: "",
-            image4: "",
-            image5: "",
             color: "",
             year: "",
             brand: "",
             model: "",
-            body_style: "",
+            body_style: "Sedan",
             type: "Gas",
             transmission: "Semi-automatic Transmission",
             mileage: "",
